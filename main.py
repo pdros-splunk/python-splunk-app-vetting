@@ -16,9 +16,6 @@ def basic_auth(username, password):
     token = b64encode(f"{username}:{password}".encode('utf-8')).decode("ascii")
     return f'Basic {token}'
 
-def cls():
-    os.system('cls' if os.name=='nt' else 'clear')
-
 def get_submit_response():
     idx = 0
     while response_submit is None:
