@@ -1,4 +1,5 @@
 import os
+import json
 import requests
 import tempfile
 import argparse
@@ -104,7 +105,7 @@ if __name__ == "__main__":
             raise Exception(f"Status check failed with status code {response_status.status_code}: {response_status.text}")
 
         if response_status.json().get('status').lower() == 'success':
-            print(f"\nStatus success, json results: {response_status.json()}")
+            print(f"\nStatus success, json results: {json.dumps(response_status.json(), indent=4)}")
             print('\nGenerating HTML preview of results...')
             status = True
         idx += 1
